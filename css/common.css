@@ -1,0 +1,55 @@
+:root {
+  /* color */
+  --color-orange: #f75f2f;
+  --color-red: #e96b61;
+  --color-blue: #3b5ba9;
+  --color-bg-orange: #e87d5c;
+  --color-bg-gray: #f1ece8;
+  --color-bg-white: #ffffff;
+  --color-keyword: #3f3f3f;
+
+  /* font */
+  --font-main: "Noto Sans JP", sans-serif;
+  --font-en: "Roboto", sans-serif;
+
+  /* z-index */
+  --z-header: 100;
+  --z-footer: 100;
+
+  /* shadow */
+  --img-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  --svg-shadow: drop-shadow(0 0 10px rgba(0, 0, 0, 0.08));
+  --text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  line-height: 1.8;
+  font-size: 16px;
+  color: var(--color-text);
+  font-family: var(--font-main);
+  letter-spacing: 4%;
+}
+@media (max-width: 767px) {
+  body {
+    line-height: 1.7;
+    font-size: 15px;
+  }
+}
+/* pc/sp非表示 */
+.pc-only {
+  display: block;
+}
+.sp-only {
+  display: none;
+}
+.sd-only {
+  display: none;
+}
+@media (max-width: 767px) {
+  .pc-only {
+    display: none;
+  }
+  .sp-only {
+    display: block;
+  }
+}
