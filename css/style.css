@@ -3,6 +3,11 @@
 } */
 
 /* 共通ここから------------------------- */
+
+html,
+body {
+  overscroll-behavior-y: none;
+}
 /* font */
 .en-font {
   font-family: "Outfit", sans-serif;
@@ -601,7 +606,7 @@ body {
     margin-inline: auto;
   }
   .work-card__link {
-    padding: 24px 6% 24px 6%;
+    padding: 12px 6% 16px 6%;
   }
   .works-card__pickup {
     right: 0;
@@ -702,31 +707,336 @@ body {
   .works-swiper__button--next {
     right: 24px;
   }
-  /* ページネーション */
-  /* .works-swiper__pagination {
-    position: absolute;
-    z-index: 10;
-    bottom: 24px !important;
-    left: 50% !important;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    width: auto !important;
-    translate: -50% 0;
-  }
-  .works-swiper__pagination .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    margin: 0 !important;
-    background-color: #d5d5d5;
-    border-radius: 0;
-    opacity: 1;
-  }
-  .works-swiper__pagination .swiper-pagination-bullet-active {
-    background-color: var(--color-blue);
-  } */
 }
 /* worksここまで--------------------------- */
+/* 下層ページ共通ここから--------------------------- */
+.p-hero {
+  width: 100%;
+  aspect-ratio: 1512/273;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.p__title-header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.p-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  margin-top: auto;
+  margin-bottom: 0;
+  height: 100%;
+  margin-right: 10%;
+}
+.p__title-line {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 86px;
+  height: 2px;
+  background-color: #606060;
+}
+.p__title-line::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #606060;
+}
+.p__inner--l {
+  width: 90%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+.p__inner--s {
+  width: 85%;
+  max-width: 928px;
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .p-hero {
+    aspect-ratio: 390/128;
+  }
+  .p-title {
+    translate: 0 15%;
+  }
+  .p__title-header {
+    gap: 16px;
+  }
+  .p__title-line {
+    width: 40px;
+  }
+  .p__inner--s {
+    width: 100%;
+  }
+}
+/* 下層ページ共通ここまで--------------------------- */
+
+/* ABOUTページここから--------------------------- */
+/* タイトル */
+.p-hero--about {
+  background-image: url("../img/page-about__hero-bg.svg");
+}
+
+/* 私について */
+.profile {
+  margin-top: 96px;
+}
+.p-about__profile-content {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  align-items: center;
+  gap: 40px;
+  margin-top: 16px;
+}
+.p-about__profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+/* 私にできること */
+.skill {
+  margin-top: 112px;
+}
+.p-about__skill-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(40px, 6vw, 82px);
+  margin-top: 32px;
+}
+.p-about__skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.p-about__skill-text {
+  font-weight: 500;
+}
+.p-about__skillmap {
+  margin-top: 40px;
+}
+/* 私にとってのものづくり */
+.policy {
+  margin-top: 112px;
+  margin-bottom: 56px;
+}
+.p-about__policy-content {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 42%;
+  gap: 56px;
+  align-items: center;
+}
+.p-about__policy-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.p-about__policy-question {
+  font-weight: bold;
+  line-height: 2.2;
+}
+.p-about__policy-panel {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1440/1496;
+  background-image: url("../img/page-about__policypanel-bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.p-about__policy-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 83%;
+  max-width: 1200px;
+}
+.p-about__policy-summary {
+  margin-top: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 56px;
+  margin-bottom: 7%;
+}
+.p-about__policy-summary-points {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.p-about__policy-summary-points-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-bg-white);
+  padding: 12px 20px;
+  border-radius: 100vh;
+  border: solid 1px var(--color-keyword);
+}
+.p-about__policy-summary-points-item::before {
+  content: "";
+  display: block;
+  width: 49px;
+  height: 54px;
+  background-size: cover;
+  background-position: center;
+}
+.p-about__policy-summary-points-item--1::before {
+  background-image: url(../img/page-about__policy-point--1.svg);
+}
+.p-about__policy-summary-points-item--2::before {
+  background-image: url(../img/page-about__policy-point--2.svg);
+}
+.p-about__policy-summary-points-item--3::before {
+  background-image: url(../img/page-about__policy-point--3.svg);
+}
+.p-about__policy-summary-points-item h3 {
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2%;
+  line-height: 1.3;
+}
+.p-about__policy-summary-points-item--1 h3 {
+  color: var(--color-red);
+}
+.p-about__policy-summary-points-item--2 h3 {
+  color: #f77f2f;
+}
+.p-about__policy-summary-points-item--3 h3 {
+  color: var(--color-blue);
+}
+
+.p-about__policy-summary-points-item p {
+  font-size: 14px;
+  letter-spacing: 2%;
+  line-height: 1.3;
+}
+.p-about__policy-summary-character {
+  position: absolute;
+  right: 8%;
+  bottom: -8%;
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+  .p-about__policy-diagram {
+    width: 100%;
+  }
+  .p-about__policy-diagram img {
+    width: 80%;
+  }
+  .p-about__policy-panel {
+    width: 100%;
+    aspect-ratio: 640/1585;
+    background-size: 100% 100%;
+    background-image: url("../img/page-about__policypanel-bg-tb.svg");
+  }
+}
+@media (max-width: 767px) {
+  /* タイトル */
+  .p-hero--about {
+    background-image: url("../img/page-about__hero-bg-sp.svg");
+  }
+  .p-title--about img {
+    width: 53%;
+  }
+  /* 私について */
+  .p__title img {
+    width: 92%;
+  }
+  .p-about__profile-content {
+    display: flex;
+    flex-direction: column;
+  }
+  /* 私にできること */
+  .skill {
+    margin-top: 80px;
+  }
+  .skill .p__title img {
+    width: 91%;
+  }
+  .p-about__skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .p-about__skill-card--design img {
+    margin-left: 5%;
+  }
+  .p-about__skillmap {
+    width: calc(100vw - 20px);
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw + 20px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-inline: contain;
+  }
+  .p-about__skillmap img {
+    width: 760px;
+    max-width: none;
+    height: auto;
+  }
+  /* 私にとってのものづくり */
+  .policy {
+    margin-top: 80px;
+  }
+  .p-about__policy-content {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+  .p-about__policy-copy {
+    width: 85%;
+  }
+  .p-about__policy-copy img {
+    margin-inline: auto;
+  }
+  .p-about__policy-panel {
+    margin-top: 32px;
+  }
+  .p-about__policy-diagram {
+    width: 100%;
+  }
+  .p-about__policy-summary {
+    flex-direction: column;
+  }
+}
+@media (min-width: 420px) and (max-width: 767px) {
+  .p-about__policy-panel {
+    width: 100%;
+    aspect-ratio: 594/1585;
+    background-size: 100% 100%;
+    background-image: url("../img/page-about__policypanel-bg-tb.svg");
+  }
+  .p-about__policy-diagram--sd {
+    display: block;
+    width: 80%;
+  }
+  .p-about__policy-diagram--sp {
+    display: none;
+  }
+}
+@media (max-width: 419px) {
+  .policy {
+    margin-bottom: 220px;
+  }
+  .p-about__policy-panel {
+    aspect-ratio: 390/2547;
+    background-image: url("../img/page-about__policypanel-bg-sp.svg");
+  }
+  .p-about__policy-summary-character {
+    bottom: -6%;
+  }
+}
+
 /* フッターここから--------------------------- */
 .footer {
   padding-top: 120px;

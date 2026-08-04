@@ -76,4 +76,6 @@
       },
     });
   }
+
+  new ScrollHint(".js-hoge");
 }
