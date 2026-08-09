@@ -1037,6 +1037,51 @@ body {
   }
 }
 
+/* WORKSページここから--------------------------- */
+/* タイトル */
+.p-hero--works {
+  background-image: url("../img/page-works__hero-bg.svg");
+}
+
+/* カード */
+.p-works__archive {
+  width: 90%;
+  max-width: 1240px;
+  margin-inline: auto;
+  margin-top: 96px;
+}
+.p-works__archive-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.p-works__archive .work-card__link {
+  padding: 10px 16px 16px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .p-works__archive-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+  }
+}
+@media (max-width: 767px) {
+  .p-hero--works {
+    background-image: url("../img/page-works__hero-bg-sp.svg");
+  }
+  .p-works__archive {
+    margin-top: 80px;
+  }
+  .p-works__archive-list {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .p-title--works img {
+    width: 35%;
+  }
+}
+
+/* WORKSページここまで--------------------------- */
 /* フッターここから--------------------------- */
 .footer {
   padding-top: 120px;
