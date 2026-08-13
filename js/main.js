@@ -2,6 +2,45 @@
 
 {
   /* =========================
+    Smooth Scroll
+  ========================= */
+
+  const lenis = new Lenis({
+    autoRaf: true,
+    lerp: 0.1,
+  });
+
+  /* =========================
+  Custom Cursor
+========================= */
+
+  const cursor = document.querySelector(".custom-cursor");
+
+  if (
+    cursor &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+  ) {
+    window.addEventListener("mousemove", (event) => {
+      cursor.style.left = `${event.clientX}px`;
+      cursor.style.top = `${event.clientY}px`;
+    });
+
+    const hoverTargets = document.querySelectorAll(
+      "a, button, [data-cursor-hover]",
+    );
+
+    hoverTargets.forEach((target) => {
+      target.addEventListener("mouseenter", () => {
+        cursor.classList.add("is-hover");
+      });
+
+      target.addEventListener("mouseleave", () => {
+        cursor.classList.remove("is-hover");
+      });
+    });
+  }
+
+  /* =========================
     ハンバーガーメニュー
   ========================= */
 

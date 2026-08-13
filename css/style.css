@@ -58,6 +58,37 @@ body {
   border: 0;
 }
 
+/* マウスカーソル */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a,
+  .button {
+    cursor: none;
+  }
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 12px;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.5s ease,
+      height 0.5s ease,
+      opacity 0.5s ease;
+  }
+  .custom-cursor.is-hover {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(247, 95, 47, 0.7);
+  }
+}
 @media (max-width: 767px) {
   .section__title-wrap {
     align-items: center;
@@ -77,8 +108,8 @@ body {
 .header-nav-inner {
   display: inline-flex;
   align-items: center;
-  gap: 40px;
-  padding: 10px 16px 10px 32px;
+  gap: 12px;
+  padding: 10px 16px 10px 24px;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(12px);
@@ -86,12 +117,14 @@ body {
   border-radius: 24px;
 }
 .header-item {
-  font-size: 14px;
+  font-size: 13px;
+  padding: 2px 12px;
+  border-radius: 100vh;
+  transition: 0.3s;
 }
 .header-item-contact {
   background-color: var(--color-orange);
   padding: 6px 12px 6px 14px;
-  border-radius: 100vh;
   line-height: 1.2;
   color: var(--color-bg-white);
 }
@@ -110,6 +143,22 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+@media (any-hover: hover) {
+  .header-item:hover {
+    background: var(--color-blue);
+    color: var(--color-bg-white);
+  }
+  .header-item--home:hover {
+    background-color: #feb664;
+  }
+  .header-item--about:hover {
+    background-color: var(--color-red);
+  }
+  .header-item--works:hover {
+    color: var(--color-bg-white);
+  }
+}
+
 @media (max-width: 767px) {
   /* ハンバーガーメニューボタン */
   .header__menu-btn {
@@ -263,7 +312,7 @@ body {
   justify-content: center;
 }
 .hero__sharpes {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -753,11 +802,13 @@ body {
   margin-inline: auto;
 }
 .p__inner--s {
-  width: 85%;
+  width: 90%;
   max-width: 928px;
   margin-inline: auto;
 }
-
+.keyword-bold {
+  font-weight: bold;
+}
 @media (max-width: 767px) {
   .p-hero {
     aspect-ratio: 390/128;
@@ -773,6 +824,7 @@ body {
   }
   .p__inner--s {
     width: 100%;
+    padding: 0 7%;
   }
 }
 /* 下層ページ共通ここまで--------------------------- */
@@ -1080,8 +1132,460 @@ body {
     width: 35%;
   }
 }
-
 /* WORKSページここまで--------------------------- */
+/* WORKS 制作実績個別ページここから---------------- */
+.p-work-detail__hero {
+  width: 100%;
+  aspect-ratio: 1512 / 736;
+  display: flex;
+  align-items: flex-end;
+}
+.p-work-detail__hero-bg {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: 1512 / 736;
+}
+.p-work-detail__hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: auto;
+}
+.p-work-detail__hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.p-work-detail__hero-inner {
+  position: relative;
+  z-index: 1;
+  color: var(--color-bg-white);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8% 8% 8%;
+  width: 100%;
+  text-shadow: var(--text-shadow);
+}
+.p-work-detail__category {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.6;
+  padding: 4px 12px;
+  background-color: var(--color-blue);
+  border-radius: 2px;
+}
+.p-work-detail__title {
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 6%;
+  margin-top: 20px;
+  margin-bottom: 32px;
+  line-height: 1.3;
+}
+.p-work-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 20px;
+  margin-top: 16px;
+}
+.p-work-detail__tags-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+.p-work-detail__tags-item::before {
+  content: "#";
+}
+.p-work-detail__body {
+  margin-top: 64px;
+}
+.p-work-detail__copy {
+  translate: 10px 0;
+}
+.p-work-detail__copy img {
+  margin-inline: auto;
+}
+.p-work-detail__info {
+  background: rgba(255, 255, 255, 0.5);
+  border: solid 2px var(--color-bg-white);
+  margin-top: 64px;
+  border-radius: 40px;
+  padding: 80px 10%;
+}
+.p-work-detail__info-row {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  grid-column: 1 / -1;
+  gap: 64px;
+  padding: 30px 4%;
+  border-bottom: 1px solid rgba(63, 63, 63, 0.4);
+}
+.p-work-detail__info-header {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.p-work-detail__info-data {
+  margin-left: 0;
+}
+.p-work-detail__scope-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  background-color: #e1e1e1;
+  padding: 2px 16px;
+  border-radius: 100vh;
+}
+.p-work-detail__scope {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+.p-work-detail__info-data--url {
+  display: flex;
+  flex-direction: column;
+}
+.p-work-detail__url-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+.p-work-detail__url-link {
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.p-work-detail__url-link::after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url(../img/work-info-url-icon.svg);
+  background-size: cover;
+  background-position: center;
+}
+.p-work-story {
+  margin-top: 148px;
+}
+.p-work-story__visual {
+  margin-bottom: 148px;
+}
+.p-work-story-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  text-align: justify;
+}
+.p-work-story__header {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 5%;
+  margin-bottom: 28px;
+}
+.p-work-story-inner--katsumi .p-work-story__section--grid01 {
+  display: grid;
+  grid-template-columns: 1fr 37%;
+  gap: 7%;
+}
+.p-work-story__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.p-work-story__image img {
+  border-radius: 8px;
+}
+.p-work-story-inner--katsumi .highlight {
+  color: var(--color-blue);
+  font-weight: bold;
+  border-left: solid 3px var(--color-blue);
+  padding-left: 12px;
+}
+.p-work-story-inner--katsumi .p-work-story__section--grid02 {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+}
+.p-work-story-inner--katsumi .p-work-story__section--grid03 {
+  display: grid;
+  grid-template-columns: 1fr 27%;
+  gap: 7%;
+}
+.p-work-story-inner--katsumi
+  .p-work-story__section--grid03
+  .p-work-story__content {
+  gap: 0;
+}
+.p-work-output {
+  margin-top: 124px;
+  border-radius: 160px;
+  padding: 124px 0;
+  position: relative;
+}
+.p-work-output::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.4);
+  border: solid 2px var(--color-bg-white);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.p-work-output .p__inner--l {
+  position: relative;
+  z-index: 2;
+}
+.p-work-output--inner {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+.p-work-output__title {
+  font-size: 21px;
+  font-weight: 500;
+  border-left: 3px solid #000000;
+  line-height: 1.2;
+  padding-left: 12px;
+  margin-bottom: 16px;
+}
+.p-work-output__visual-wrap img {
+  border-radius: 8px;
+  width: 100%;
+}
+.p-work-output__url-wrap {
+  text-align: center;
+  margin-top: 32px;
+}
+.p-work-output__url {
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  margin-inline: auto;
+  gap: 16px;
+  transition: 0.3s;
+}
+.p-work-output__url-link {
+  font-weight: 500;
+  color: var(--color-orange);
+}
+.p-work-output__deco {
+  position: absolute;
+  width: 12%;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.p-work-output__btn {
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+.p-work-output__visuals-row {
+  display: flex;
+  gap: 48px;
+  justify-content: space-between;
+}
+
+/* 毛糸の八百屋さん */
+.p-work-story-inner--keitonoyaoyasan .p-work-story__section--grid01 {
+  display: grid;
+  grid-template-columns: 1fr 25%;
+  gap: 3%;
+  align-items: center;
+}
+.p-work-story-inner--keitonoyaoyasan .p-work-story__section--grid02 {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  gap: 3%;
+  align-items: center;
+}
+.p-work-story-inner--keitonoyaoyasan
+  .p-work-story__section--grid02
+  .p-work-story__content {
+  gap: 0;
+}
+
+/* 北海道教育委員会 */
+.p-work-detail--hokkaido .p-work-detail__hero-bg::after {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.p-work-story-inner--hokkaido .p-work-story__section--grid01 {
+  display: grid;
+  grid-template-columns: 1fr 35%;
+  gap: 8%;
+  align-items: center;
+}
+.p-work-story-inner--hokkaido .p-work-story__image {
+  height: 100%;
+}
+.p-work-story-inner--hokkaido .p-work-story__image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (any-hover: hover) {
+  .p-work-detail__url-link:hover {
+    opacity: 0.5;
+  }
+  .p-work-output__url:hover {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 1024px) {
+  .p-work-detail__category {
+    font-size: 16px;
+  }
+  .p-work-detail__title {
+    font-size: 22px;
+  }
+  .p-work-output {
+    border-radius: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* hero */
+  .p-work-detail__hero {
+    height: 85svh;
+    aspect-ratio: auto;
+    align-items: center;
+  }
+  .p-work-detail__hero-bg {
+    height: 85svh;
+    aspect-ratio: auto;
+  }
+  .p-work-detail__hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .p-work-detail__hero-inner {
+    flex-direction: column;
+    gap: 10%;
+    height: 80%;
+  }
+  .p-work-detail__title {
+    font-size: 28px;
+    margin-top: 16px;
+  }
+  .p-work-detail__hero-contant {
+    margin-top: 10%;
+  }
+  /* body */
+  .p-work-detail__body {
+    margin-top: 32px;
+  }
+  .p-work-detail__info-row {
+    display: flex;
+    flex-direction: column;
+  }
+  .p-work-detail__info {
+    margin-top: 32px;
+    padding: 24px 8% 64px;
+  }
+  .p-work-detail__info-row {
+    gap: 16px;
+    padding: 32px 0;
+  }
+  .p-work-detail__scope {
+    gap: 8px;
+  }
+  .p-work-detail__info-header {
+    font-size: 17px;
+  }
+  /* story */
+  .p-work-story {
+    margin-top: 80px;
+  }
+  .p-work-story__visual {
+    margin-bottom: 80px;
+  }
+  .p-work-story__header {
+    font-size: 20px;
+    text-align: left;
+  }
+  .p-work-story-inner {
+    gap: 80px;
+  }
+  .p-work-story-inner--katsumi .p-work-story__section--grid01 {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+  .p-work-story-inner--katsumi .p-work-story__section--grid02 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .p-work-story-inner--katsumi .p-work-story__image {
+    width: 100%;
+    height: 300px;
+  }
+  .p-work-story-inner--katsumi .p-work-story__image img {
+    width: 100%;
+    max-width: 560px;
+    height: 100%;
+    object-fit: cover;
+  }
+  .p-work-story-inner--katsumi .p-work-story__section--grid03 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  /* output */
+  .p-work-output {
+    margin-top: 80px;
+    border-radius: 40px;
+    padding: 56px 0;
+  }
+  .p-work-output--inner {
+    gap: 48px;
+  }
+  .p-work-output__title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .p-work-output__visual-web img {
+    border-radius: 8px;
+  }
+  .p-work-output__url {
+    display: block;
+  }
+  .p-work-output__visuals-row {
+    flex-direction: column;
+  }
+  /* 毛糸の八百屋さん */
+  .p-work-story-inner--keitonoyaoyasan .p-work-story__section--grid01 {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+  .p-work-story-inner--keitonoyaoyasan .p-work-story__section--grid02 {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 16px;
+  }
+  /* 北海道教育委員会 */
+  .p-work-story-inner--hokkaido .p-work-story__section--grid01 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* WORKS 制作実績個別ページここまで---------------- */
 /* フッターここから--------------------------- */
 .footer {
   padding-top: 120px;
