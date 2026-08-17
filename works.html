@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -31,24 +31,16 @@
       src="https://cdn.jsdelivr.net/npm/swiper@14.0.7/swiper-bundle.min.js"
       defer
     ></script>
-
-    <script
-      src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiper@14.0.7/swiper-bundle.min.js"
-      defer
-    ></script>
     <script src="js/main.js?v=2" defer></script>
   </head>
   <body>
+    <div class="custom-cursor" aria-hidden="true"></div>
     <header class="header">
       <nav class="header-nav pc-only">
         <ul class="header-nav-inner en-font">
           <li class="header-item"><a href="index.html">HOME</a></li>
-          <li class="header-item"><a href="">ABOUT ME</a></li>
-          <li class="header-item"><a href="">WORKS</a></li>
+          <li class="header-item"><a href="about.html">ABOUT ME</a></li>
+          <li class="header-item"><a href="works.html">WORKS</a></li>
           <li class="header-item header-item-contact">
             <a href="">CONTACT</a>
           </li>
@@ -61,16 +53,16 @@
         aria-expanded="false"
         aria-controls="sp-nav"
       >
-        <div class="header__menu-toggle">
+        <span class="header__menu-toggle">
           <span class="header__menu-open"> MENU </span>
 
           <span class="header__menu-close"> CLOSE </span>
-        </div>
+        </span>
       </button>
       <!-- ハンバーガーメニュー中身 -->
-      <div class="hamburger-menu sp-only">
+      <div class="hamburger-menu sp-only" id="sp-nav">
         <div class="hamburger-menu__inner">
-          <a href="#">
+          <a href="index.html">
             <img
               src="img/maoyamamoto-sp.svg"
               class="hamburger-menu__logo"
@@ -83,13 +75,15 @@
           <nav class="hamburger-menu__nav-wrap">
             <ul class="hamburger-menu__nav">
               <li class="hamburger-menu__nav-item">
-                <a href="#" class="hamburger-menu__nav-link">TOP</a>
+                <a href="index.html" class="hamburger-menu__nav-link">TOP</a>
               </li>
               <li class="hamburger-menu__nav-item">
-                <a href="#about" class="hamburger-menu__nav-link">ABOUT ME</a>
+                <a href="about.html" class="hamburger-menu__nav-link"
+                  >ABOUT ME</a
+                >
               </li>
               <li class="hamburger-menu__nav-item">
-                <a href="#works" class="hamburger-menu__nav-link">WORKS</a>
+                <a href="works.html" class="hamburger-menu__nav-link">WORKS</a>
               </li>
               <li
                 class="hamburger-menu__nav-item hamburger-menu__nav-item--contact"
@@ -99,7 +93,7 @@
             </ul>
             <img
               class="hamburger-menu__character"
-              src="img/hamburger_character.svg"
+              src="img/hamburger_character.png"
               width="90"
               height="88"
               alt=""
@@ -107,10 +101,10 @@
             />
           </nav>
         </div>
-        <div class="hamburger-menu__shapes">
+        <div class="hamburger-menu__shapes" aria-hidden="true">
           <img
             class="hamburger-menu__shape shape--left"
-            src="img/hamburger_shape--left.svg"
+            src="img/hamburger_shape--left.png"
             width="153"
             height="187"
             alt=""
@@ -118,7 +112,7 @@
           />
           <img
             class="hamburger-menu__shape shape--right"
-            src="img/hamburger_shape--right.svg"
+            src="img/hamburger_shape--right.png"
             width="112"
             height="70"
             alt=""
@@ -132,18 +126,19 @@
       <section class="p-hero p-hero--works">
         <h1 class="p-title p-title--works">
           <img
-            src="img/works-title-en.svg"
+            src="img/works-title-en.png"
             width="215"
             height="66"
-            alt="ABOUT ME"
+            alt="WORKS"
             decoding="async"
           />
+          <span class="section__title-jp"> 制作したもの </span>
         </h1>
       </section>
       <section class="p-works__archive">
         <div class="p-works__archive-list">
           <article class="swiper-slide work-card">
-            <a class="work-card__link" href="">
+            <a class="work-card__link" href="works-katsumi.html">
               <div class="works-card__label">
                 <span>コーポレートサイト</span>
               </div>
@@ -158,19 +153,19 @@
                   />
                 </div>
                 <div class="work-card__body">
-                  <h3 class="work-card__title">毛糸の八百屋さん</h3>
+                  <h2 class="work-card__title">勝見通信工業株式会社</h2>
                   <ul class="work-card__tags">
                     <li class="work-card__tags-item">ディレクション</li>
                     <li class="work-card__tags-item">Webデザイン</li>
                     <li class="work-card__tags-item">WordPress</li>
                   </ul>
-                  <span class="work-card__button en-font">MORE VIEW</span>
+                  <!-- <span class="work-card__button en-font">MORE VIEW</span> -->
                 </div>
               </div>
             </a>
           </article>
           <article class="swiper-slide work-card">
-            <a class="work-card__link" href="">
+            <a class="work-card__link" href="works-keitonoyaoyasan.html">
               <div class="works-card__label">
                 <span>ハンドメイドブランドサイト1</span>
               </div>
@@ -185,19 +180,19 @@
                   />
                 </div>
                 <div class="work-card__body">
-                  <h3 class="work-card__title">毛糸の八百屋さん</h3>
+                  <h2 class="work-card__title">毛糸の八百屋さん</h2>
                   <ul class="work-card__tags">
                     <li class="work-card__tags-item">ディレクション</li>
                     <li class="work-card__tags-item">Webデザイン</li>
                     <li class="work-card__tags-item">WordPress</li>
                   </ul>
-                  <span class="work-card__button en-font">MORE VIEW</span>
+                  <!-- <span class="work-card__button en-font">MORE VIEW</span> -->
                 </div>
               </div>
             </a>
           </article>
           <article class="swiper-slide work-card">
-            <a class="work-card__link" href="">
+            <a class="work-card__link" href="works-hokkaido.html">
               <div class="works-card__label">
                 <span>企業ブース装飾デザイン</span>
               </div>
@@ -212,12 +207,12 @@
                   />
                 </div>
                 <div class="work-card__body">
-                  <h3 class="work-card__title">北海道教育委員会</h3>
+                  <h2 class="work-card__title">北海道教育委員会</h2>
                   <ul class="work-card__tags">
                     <li class="work-card__tags-item">グラフィックデザイン</li>
                     <li class="work-card__tags-item">ブースデザイン</li>
                   </ul>
-                  <span class="work-card__button en-font">MORE VIEW</span>
+                  <!-- <span class="work-card__button en-font">MORE VIEW</span> -->
                 </div>
               </div>
             </a>
@@ -229,48 +224,27 @@
       <nav class="footer__nav">
         <ul class="footer-nav__list">
           <li class="footer-nav__item footer-nav__item--home">
-            <a class="footer-nav__link" href="#"
-              ><img
-                class="footer-nav__shape footer-nav__shape--home"
-                src="img/contact-nav-home.svg"
-                width="166"
-                height="166"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+            <a class="footer-nav__link" href="index.html">
               <span class="footer-nav__text en-font">HOME</span></a
             >
           </li>
           <li class="footer-nav__item footer-nav__item--about">
-            <a class="footer-nav__link" href=""
-              ><img
-                class="footer-nav__shape footer-nav__shape--about"
-                src="img/contact-nav-about.svg"
-                width="166"
-                height="166"
-                alt=""
-                decoding="async"
-              />
+            <a class="footer-nav__link" href="about.html">
               <span class="footer-nav__text footer-nav__text--about en-font"
                 >ABOUT ME</span
               ></a
             >
           </li>
           <li class="footer-nav__item footer-nav__item--works">
-            <a class="footer-nav__link" href=""
-              ><img
-                class="footer-nav__shape footer-nav__shape--works"
-                src="img/contact-nav-works.svg"
-                width="157"
-                height="128"
-                alt=""
-                decoding="async"
-              />
+            <a class="footer-nav__link" href="works.html">
               <span class="footer-nav__text en-font">WORKS</span></a
             >
           </li>
         </ul>
+        <div class="footer-nav-guide">
+          <span class="en-font">CLICK！</span>
+          <div class="scroll-down"></div>
+        </div>
       </nav>
       <div class="footer__contact">
         <div class="footer__content">
@@ -286,7 +260,7 @@
           </h2>
           <img
             class="contact-character"
-            src="img/contact-character.svg"
+            src="img/contact-character.png"
             width="240"
             height="94"
             alt=""
@@ -304,7 +278,7 @@
         <div class="footer__deco" aria-hidden="true">
           <img
             class="pc-only"
-            src="img/contact-deco.svg"
+            src="img/contact-deco.png"
             width="579"
             height="276"
             alt=""
@@ -313,7 +287,7 @@
           />
           <img
             class="sp-only footer__deco-img-sp"
-            src="img/contact-deco-sp.svg"
+            src="img/contact-deco-sp.png"
             width="579"
             height="193"
             alt=""

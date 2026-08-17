@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -31,19 +31,10 @@
       src="https://cdn.jsdelivr.net/npm/swiper@14.0.7/swiper-bundle.min.js"
       defer
     ></script>
-
-    <script
-      src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiper@14.0.7/swiper-bundle.min.js"
-      defer
-    ></script>
-
     <script src="js/main.js?v=2" defer></script>
   </head>
   <body>
+    <div class="custom-cursor" aria-hidden="true"></div>
     <header class="header">
       <nav class="header-nav pc-only">
         <ul class="header-nav-inner en-font">
@@ -68,16 +59,16 @@
         aria-expanded="false"
         aria-controls="sp-nav"
       >
-        <div class="header__menu-toggle">
+        <span class="header__menu-toggle">
           <span class="header__menu-open"> MENU </span>
 
           <span class="header__menu-close"> CLOSE </span>
-        </div>
+        </span>
       </button>
       <!-- ハンバーガーメニュー中身 -->
-      <div class="hamburger-menu sp-only">
+      <div class="hamburger-menu sp-only" id="sp-nav">
         <div class="hamburger-menu__inner">
-          <a href="#">
+          <a href="index.html">
             <img
               src="img/maoyamamoto-sp.svg"
               class="hamburger-menu__logo"
@@ -90,13 +81,15 @@
           <nav class="hamburger-menu__nav-wrap">
             <ul class="hamburger-menu__nav">
               <li class="hamburger-menu__nav-item">
-                <a href="#" class="hamburger-menu__nav-link">TOP</a>
+                <a href="index.html" class="hamburger-menu__nav-link">TOP</a>
               </li>
               <li class="hamburger-menu__nav-item">
-                <a href="#about" class="hamburger-menu__nav-link">ABOUT ME</a>
+                <a href="about.html" class="hamburger-menu__nav-link"
+                  >ABOUT ME</a
+                >
               </li>
               <li class="hamburger-menu__nav-item">
-                <a href="#works" class="hamburger-menu__nav-link">WORKS</a>
+                <a href="works.html" class="hamburger-menu__nav-link">WORKS</a>
               </li>
               <li
                 class="hamburger-menu__nav-item hamburger-menu__nav-item--contact"
@@ -106,7 +99,7 @@
             </ul>
             <img
               class="hamburger-menu__character"
-              src="img/hamburger_character.svg"
+              src="img/hamburger_character.png"
               width="90"
               height="88"
               alt=""
@@ -114,10 +107,10 @@
             />
           </nav>
         </div>
-        <div class="hamburger-menu__shapes">
+        <div class="hamburger-menu__shapes" aria-hidden="true">
           <img
             class="hamburger-menu__shape shape--left"
-            src="img/hamburger_shape--left.svg"
+            src="img/hamburger_shape--left.png"
             width="153"
             height="187"
             alt=""
@@ -125,7 +118,7 @@
           />
           <img
             class="hamburger-menu__shape shape--right"
-            src="img/hamburger_shape--right.svg"
+            src="img/hamburger_shape--right.png"
             width="112"
             height="70"
             alt=""
@@ -180,13 +173,10 @@
         <div class="p-work-detail__body">
           <div class="p-work-detail__inner p__inner--l">
             <div class="p-work-detail__copy">
-              <img
-                src="img/work-copy--keitonoyaoyasan.svg"
-                width="791"
-                height="72"
-                alt="毛糸で育てた野菜にときめく、小さな八百屋の世界"
-                decoding="async"
-              />
+              <span class="work-card__copy-label en-font">FOCUS</span>
+              <p class="work-card__copy-title">
+                毛糸で育てた野菜にときめく、小さな八百屋の世界
+              </p>
             </div>
             <dl class="p-work-detail__info">
               <div class="p-work-detail__info-row">
@@ -396,54 +386,35 @@
           </div>
         </div>
       </section>
-      <a class="button button--works p-work-output__btn">WORKS一覧へ </a>
+      <a class="button button--works p-work-output__btn" href="works.html"
+        >WORKS一覧へ
+      </a>
     </main>
     <footer class="footer">
       <nav class="footer__nav">
         <ul class="footer-nav__list">
           <li class="footer-nav__item footer-nav__item--home">
-            <a class="footer-nav__link" href="#"
-              ><img
-                class="footer-nav__shape footer-nav__shape--home"
-                src="img/contact-nav-home.svg"
-                width="166"
-                height="166"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+            <a class="footer-nav__link" href="index.html">
               <span class="footer-nav__text en-font">HOME</span></a
             >
           </li>
           <li class="footer-nav__item footer-nav__item--about">
-            <a class="footer-nav__link" href=""
-              ><img
-                class="footer-nav__shape footer-nav__shape--about"
-                src="img/contact-nav-about.svg"
-                width="166"
-                height="166"
-                alt=""
-                decoding="async"
-              />
+            <a class="footer-nav__link" href="about.html">
               <span class="footer-nav__text footer-nav__text--about en-font"
                 >ABOUT ME</span
               ></a
             >
           </li>
           <li class="footer-nav__item footer-nav__item--works">
-            <a class="footer-nav__link" href=""
-              ><img
-                class="footer-nav__shape footer-nav__shape--works"
-                src="img/contact-nav-works.svg"
-                width="157"
-                height="128"
-                alt=""
-                decoding="async"
-              />
+            <a class="footer-nav__link" href="works.html">
               <span class="footer-nav__text en-font">WORKS</span></a
             >
           </li>
         </ul>
+        <div class="footer-nav-guide">
+          <span class="en-font">CLICK！</span>
+          <div class="scroll-down"></div>
+        </div>
       </nav>
       <div class="footer__contact">
         <div class="footer__content">
@@ -459,7 +430,7 @@
           </h2>
           <img
             class="contact-character"
-            src="img/contact-character.svg"
+            src="img/contact-character.png"
             width="240"
             height="94"
             alt=""
@@ -477,7 +448,7 @@
         <div class="footer__deco" aria-hidden="true">
           <img
             class="pc-only"
-            src="img/contact-deco.svg"
+            src="img/contact-deco.png"
             width="579"
             height="276"
             alt=""
@@ -486,7 +457,7 @@
           />
           <img
             class="sp-only footer__deco-img-sp"
-            src="img/contact-deco-sp.svg"
+            src="img/contact-deco-sp.png"
             width="579"
             height="193"
             alt=""

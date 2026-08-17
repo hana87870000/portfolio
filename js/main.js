@@ -2,6 +2,26 @@
 
 {
   /* =========================
+  Loading
+========================= */
+
+  const loading = document.querySelector(".loading");
+
+  const startTime = performance.now();
+
+  window.addEventListener("load", () => {
+    if (!loading) return;
+
+    const elapsedTime = performance.now() - startTime;
+    const minimumTime = 1200;
+
+    const remainingTime = Math.max(minimumTime - elapsedTime, 0);
+
+    setTimeout(() => {
+      loading.classList.add("is-loaded");
+    }, remainingTime);
+  });
+  /* =========================
     Smooth Scroll
   ========================= */
 
@@ -116,5 +136,35 @@
     });
   }
 
-  new ScrollHint(".js-hoge");
+  /* =========================
+  Scroll Hint
+========================= */
+
+  if (typeof ScrollHint !== "undefined") {
+    new ScrollHint(".js-hoge");
+  }
+
+  /* =========================
+  Scroll Fade
+========================= */
+
+  const fadeElements = document.querySelectorAll(".js-fade");
+
+  const fadeObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    },
+  );
+
+  fadeElements.forEach((element) => {
+    fadeObserver.observe(element);
+  });
 }

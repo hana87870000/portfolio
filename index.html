@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -23,7 +23,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@14.0.7/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=2" />
 
     <!-- JS -->
     <script
@@ -35,19 +35,31 @@
       src="https://cdn.jsdelivr.net/npm/swiper@14.0.7/swiper-bundle.min.js"
       defer
     ></script>
-
-    <script
-      src="https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiper@14.0.7/swiper-bundle.min.js"
-      defer
-    ></script>
     <script src="js/main.js?v=2" defer></script>
   </head>
-  <div class="custom-cursor" aria-hidden="true"></div>
   <body>
+    <div class="custom-cursor" aria-hidden="true"></div>
+    <div class="loading" aria-hidden="true">
+      <div class="loading__shapes">
+        <img
+          class="loading__shape loading__shape--circle"
+          src="img/loading-circle.png"
+          alt=""
+        />
+
+        <img
+          class="loading__shape loading__shape--square"
+          src="img/loading-square.png"
+          alt=""
+        />
+
+        <img
+          class="loading__shape loading__shape--arch"
+          src="img/loading-arch.png"
+          alt=""
+        />
+      </div>
+    </div>
     <header class="header">
       <nav class="header-nav pc-only">
         <ul class="header-nav-inner en-font">
@@ -70,16 +82,16 @@
         aria-expanded="false"
         aria-controls="sp-nav"
       >
-        <div class="header__menu-toggle">
+        <span class="header__menu-toggle">
           <span class="header__menu-open"> MENU </span>
 
           <span class="header__menu-close"> CLOSE </span>
-        </div>
+        </span>
       </button>
       <!-- ハンバーガーメニュー中身 -->
-      <div class="hamburger-menu sp-only">
+      <div class="hamburger-menu sp-only" id="sp-nav">
         <div class="hamburger-menu__inner">
-          <a href="#">
+          <a href="index.html">
             <img
               src="img/maoyamamoto-sp.svg"
               class="hamburger-menu__logo"
@@ -92,13 +104,15 @@
           <nav class="hamburger-menu__nav-wrap">
             <ul class="hamburger-menu__nav">
               <li class="hamburger-menu__nav-item">
-                <a href="#" class="hamburger-menu__nav-link">TOP</a>
+                <a href="index.html" class="hamburger-menu__nav-link">TOP</a>
               </li>
               <li class="hamburger-menu__nav-item">
-                <a href="#about" class="hamburger-menu__nav-link">ABOUT ME</a>
+                <a href="about.html" class="hamburger-menu__nav-link"
+                  >ABOUT ME</a
+                >
               </li>
               <li class="hamburger-menu__nav-item">
-                <a href="#works" class="hamburger-menu__nav-link">WORKS</a>
+                <a href="works.html" class="hamburger-menu__nav-link">WORKS</a>
               </li>
               <li
                 class="hamburger-menu__nav-item hamburger-menu__nav-item--contact"
@@ -108,7 +122,7 @@
             </ul>
             <img
               class="hamburger-menu__character"
-              src="img/hamburger_character.svg"
+              src="img/hamburger_character.png"
               width="90"
               height="88"
               alt=""
@@ -116,10 +130,10 @@
             />
           </nav>
         </div>
-        <div class="hamburger-menu__shapes">
+        <div class="hamburger-menu__shapes" aria-hidden="true">
           <img
             class="hamburger-menu__shape shape--left"
-            src="img/hamburger_shape--left.svg"
+            src="img/hamburger_shape--left.png"
             width="153"
             height="187"
             alt=""
@@ -127,7 +141,7 @@
           />
           <img
             class="hamburger-menu__shape shape--right"
-            src="img/hamburger_shape--right.svg"
+            src="img/hamburger_shape--right.png"
             width="112"
             height="70"
             alt=""
@@ -138,11 +152,11 @@
       <div class="overlay"></div>
     </header>
     <main>
-      <section class="hero">
-        <div class="hero__sharpes">
+      <div class="top-area">
+        <div class="hero__sharpes" aria-hidden="true">
           <img
             class="hero__shape hero__shape--triangle"
-            src="img/mv-shape-triangle.svg"
+            src="img/mv-shape-triangle.png"
             width="203"
             height="197"
             alt=""
@@ -150,7 +164,7 @@
           />
           <img
             class="hero__shape hero__shape--arch-red"
-            src="img/mv-shape-arch-red.svg"
+            src="img/mv-shape-arch-red.png"
             width="172"
             height="128"
             alt=""
@@ -158,7 +172,7 @@
           />
           <img
             class="hero__shape hero__shape--square"
-            src="img/mv-shape-square.svg"
+            src="img/mv-shape-square.png"
             width="318"
             height="114"
             alt=""
@@ -166,7 +180,7 @@
           />
           <img
             class="hero__shape hero__shape--circle"
-            src="img/mv-shape-circle.svg"
+            src="img/mv-shape-circle.png"
             width="216"
             height="216"
             alt=""
@@ -174,127 +188,121 @@
           />
           <img
             class="hero__shape hero__shape--arch-green"
-            src="img/mv-shape-arch-green.svg"
+            src="img/mv-shape-arch-green.png"
             width="233"
             height="163"
             alt=""
             decoding="async"
           />
         </div>
-        <div class="hero__inner">
-          <div class="mv__name-blur" aria-hidden="true"></div>
-          <div class="hero__title-wrap">
-            <h1 class="hero__title">
-              <span class="hero__name-wrap">
+        <section class="hero">
+          <div class="hero__inner">
+            <div class="mv__name-blur" aria-hidden="true"></div>
+            <div class="hero__title-wrap">
+              <h1 class="hero__title">
+                <span class="hero__name-wrap">
+                  <img
+                    class="hero__name pc-only"
+                    src="img/maoyamamoto.svg"
+                    width="1182"
+                    height="125"
+                    alt=""
+                    decoding="async"
+                  />
+                  <img
+                    class="hero__name sp-only"
+                    src="img/maoyamamoto-sp.svg"
+                    width="1182"
+                    height="125"
+                    alt="mao yamamoto"
+                    decoding="async"
+                  />
+                </span>
                 <img
-                  class="hero__name pc-only"
-                  src="img/maoyamamoto.svg"
-                  width="1182"
-                  height="125"
-                  alt=""
+                  class="hero__portfolio"
+                  src="img/portfolio.png"
+                  width="415"
+                  height="114"
+                  alt="portfolio"
                   decoding="async"
                 />
+              </h1>
+              <div class="hero__copy">
                 <img
-                  class="hero__name sp-only"
-                  src="img/maoyamamoto-sp.svg"
-                  width="1182"
-                  height="125"
-                  alt=""
+                  src="img/mv-copy.png"
+                  width="561"
+                  height="262"
+                  alt="見つけるところから、ものづくり。"
                   decoding="async"
                 />
-              </span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="about js-fade" id="about">
+          <div class="about__inner">
+            <h2 class="section__title-wrap about__header">
               <img
-                class="hero__portfolio"
-                src="img/portfolio.svg"
-                width="415"
-                height="114"
+                class="about-title-en"
+                src="img/about-title-en.png"
+                width="389"
+                height="46"
                 alt=""
                 decoding="async"
               />
-            </h1>
-            <div class="hero__copy">
+              <span class="section__title-jp"> わたしについて </span>
+            </h2>
+            <div class="about__text">
+              <p>
+                WEB制作では、ディレクションから実装までを一貫して取り組んでいます。
+              </p>
+              <p>
+                相手の想いや課題に向き合い、まだ見えていない魅力や本当に届けたいことを見つけることから始めています。
+              </p>
+              <p>
+                その価値が届けたい相手へ自然と伝わる形を探し続け、伝わるまで一緒につくり上げていくものづくりを大切にしています。
+              </p>
+            </div>
+            <div class="about__visual">
               <img
-                src="img/mv-copy.svg"
-                width="561"
-                height="262"
-                alt=""
+                src="img/about-visual.png"
+                width="411"
+                height="348"
+                alt="あなたらしいってどんな形？"
                 decoding="async"
               />
             </div>
+            <a class="button button--about en-font">ABOUT ME </a>
           </div>
-        </div>
-      </section>
-      <section class="about" id="about">
-        <div class="about__inner">
-          <h2 class="section__title-wrap about__header">
-            <img
-              src="img/about-title-jp.svg"
-              width="126"
-              height="30"
-              alt=""
-              decoding="async"
-            />
-            <img
-              class="about-title-en"
-              src="img/about-title-en.svg"
-              width="240"
-              height="34"
-              alt=""
-              decoding="async"
-            />
-            <span class="visually-hidden"> わたしについて </span>
-          </h2>
-          <div class="about__text">
-            <p>
-              WEB制作では、ディレクションから実装までを一貫して取り組んでいます。
-            </p>
-            <p>
-              相手の想いや課題に向き合い、まだ見えていない魅力や本当に届けたいことを見つけることから始めています。
-            </p>
-            <p>
-              その価値が届けたい相手へ自然と伝わる形を探し続け、伝わるまで一緒につくり上げていくものづくりを大切にしています。
-            </p>
-          </div>
-          <div class="about__visual">
-            <img
-              src="img/about-visual.svg"
-              width="411"
-              height="348"
-              alt="あなたらしいってどんな形？"
-              decoding="async"
-            />
-          </div>
-          <a class="button button--about en-font">ABOUT ME </a>
-        </div>
-      </section>
+        </section>
+      </div>
       <section class="works" id="works">
-        <div class="works__inner">
+        <div class="works__header-wrap">
           <h2 class="section__title-wrap works__header">
             <img
-              src="img/works-title-jp.svg"
-              width="108"
-              height="18"
+              src="img/works-title-en.png"
+              width="266"
+              height="69"
               alt=""
               decoding="async"
             />
-            <img
-              class="works-title-en"
-              src="img/works-title-en.svg"
-              width="173"
-              height="52"
-              alt=""
-              decoding="async"
-            />
-            <span class="visually-hidden"> 制作実績 </span>
+            <span class="section__title-jp"> 制作したもの </span>
           </h2>
+          <div class="scroll-down">
+            <span class="scroll-down__line">
+              <span class="scroll-down__dot"></span>
+            </span>
+          </div>
+        </div>
+        <div class="works__inner">
           <div class="works__list">
             <article class="work-card work-card--picup">
-              <a class="work-card__link" href="">
+              <a class="work-card__link" href="works-katsumi.html">
                 <div class="works-card__pickup">
                   <img
-                    src="img/works-item--pickup.svg"
-                    width="97"
-                    height="98"
+                    src="img/works-item--pickup.png"
+                    width="87"
+                    height="91"
                     alt="PICKUP"
                     decoding="async"
                   />
@@ -312,36 +320,44 @@
                       decoding="async"
                       loading="lazy"
                     />
-                  </div>
-                  <div class="work-card__body">
-                    <h3 class="work-card__title">勝見通信工業株式会社</h3>
-                    <ul class="work-card__tags">
-                      <li class="work-card__tags-item">ディレクション</li>
-                      <li class="work-card__tags-item">Webデザイン</li>
-                      <li class="work-card__tags-item">WordPress</li>
-                    </ul>
-                    <div class="work-card__copy">
+                    <div class="work-card__image-hover-bg"></div>
+                    <div class="work-card__image-hover-icon">
                       <img
-                        src="img/works-item-copy--katsumi.svg"
-                        width="261"
-                        height="21"
-                        alt="当たり前の日常を支える会社"
+                        src="img/work-card-hover-icon.svg"
+                        width="214"
+                        height="64"
+                        alt="more view"
                         decoding="async"
                         loading="lazy"
                       />
+                    </div>
+                  </div>
+                  <div class="work-card__body">
+                    <div class="work-car__title-wrap">
+                      <h3 class="work-card__title">勝見通信工業株式会社</h3>
+                      <ul class="work-card__tags">
+                        <li class="work-card__tags-item">ディレクション</li>
+                        <li class="work-card__tags-item">Webデザイン</li>
+                        <li class="work-card__tags-item">WordPress</li>
+                      </ul>
+                    </div>
+                    <div class="work-card__copy">
+                      <span class="work-card__copy-label en-font">FOCUS</span>
+                      <p class="work-card__copy-title">
+                        あたりまえの日常を支える会社
+                      </p>
                     </div>
                     <div class="work-card__text">
                       <p>
                         通信インフラを支える企業のコーポレートサイトリニューアル。ヒアリングを通して見えてきた「人を愛し、人を信じる」という理念と、人々の日常を守る仕事の価値や、向き合う姿勢を形にしました。
                       </p>
                     </div>
-                    <span class="work-card__button en-font">MORE VIEW</span>
                   </div>
                 </div>
               </a>
             </article>
             <article class="work-card pc-only">
-              <a class="work-card__link" href="">
+              <a class="work-card__link" href="works-keitonoyaoyasan.html">
                 <div class="works-card__label">
                   <span>ハンドメイド作家ブランドサイト</span>
                 </div>
@@ -355,6 +371,17 @@
                       decoding="async"
                       loading="lazy"
                     />
+                    <div class="work-card__image-hover-bg"></div>
+                    <div class="work-card__image-hover-icon">
+                      <img
+                        src="img/work-card-hover-icon.svg"
+                        width="214"
+                        height="64"
+                        alt="more view"
+                        decoding="async"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                   <div class="work-card__body">
                     <h3 class="work-card__title">毛糸の八百屋さん</h3>
@@ -363,13 +390,12 @@
                       <li class="work-card__tags-item">Webデザイン</li>
                       <li class="work-card__tags-item">WordPress</li>
                     </ul>
-                    <span class="work-card__button en-font">MORE VIEW</span>
                   </div>
                 </div>
               </a>
             </article>
             <article class="work-card pc-only">
-              <a class="work-card__link" href="">
+              <a class="work-card__link" href="works-hokkaido.html">
                 <div class="works-card__label">
                   <span>企業ブース装飾デザイン</span>
                 </div>
@@ -383,6 +409,17 @@
                       decoding="async"
                       loading="lazy"
                     />
+                    <div class="work-card__image-hover-bg"></div>
+                    <div class="work-card__image-hover-icon">
+                      <img
+                        src="img/work-card-hover-icon.svg"
+                        width="214"
+                        height="64"
+                        alt="more view"
+                        decoding="async"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                   <div class="work-card__body">
                     <h3 class="work-card__title">北海道教育委員会</h3>
@@ -390,7 +427,6 @@
                       <li class="work-card__tags-item">グラフィックデザイン</li>
                       <li class="work-card__tags-item">ブースデザイン</li>
                     </ul>
-                    <span class="work-card__button en-font">MORE VIEW</span>
                   </div>
                 </div>
               </a>
@@ -398,7 +434,7 @@
             <div class="swiper works-swiper sp-only">
               <div class="swiper-wrapper">
                 <article class="swiper-slide work-card">
-                  <a class="work-card__link" href="">
+                  <a class="work-card__link" href="works-keitonoyaoyasan.html">
                     <div class="works-card__label">
                       <span>ハンドメイドブランドサイト1</span>
                     </div>
@@ -420,13 +456,12 @@
                           <li class="work-card__tags-item">Webデザイン</li>
                           <li class="work-card__tags-item">WordPress</li>
                         </ul>
-                        <span class="work-card__button en-font">MORE VIEW</span>
                       </div>
                     </div>
                   </a>
                 </article>
                 <article class="swiper-slide work-card">
-                  <a class="work-card__link" href="">
+                  <a class="work-card__link" href="works-hokkaido.html">
                     <div class="works-card__label">
                       <span>企業ブース装飾デザイン</span>
                     </div>
@@ -449,13 +484,12 @@
                           </li>
                           <li class="work-card__tags-item">ブースデザイン</li>
                         </ul>
-                        <span class="work-card__button en-font">MORE VIEW</span>
                       </div>
                     </div>
                   </a>
                 </article>
                 <article class="swiper-slide work-card">
-                  <a class="work-card__link" href="">
+                  <a class="work-card__link" href="works-keitonoyaoyasan.html">
                     <div class="works-card__label">
                       <span>ハンドメイドブランドサイト2</span>
                     </div>
@@ -477,13 +511,12 @@
                           <li class="work-card__tags-item">Webデザイン</li>
                           <li class="work-card__tags-item">WordPress</li>
                         </ul>
-                        <span class="work-card__button en-font">MORE VIEW</span>
                       </div>
                     </div>
                   </a>
                 </article>
                 <article class="swiper-slide work-card">
-                  <a class="work-card__link" href="">
+                  <a class="work-card__link" href="works-keitonoyaoyasan.html">
                     <div class="works-card__label">
                       <span>ハンドメイドブランドサイト1</span>
                     </div>
@@ -505,13 +538,12 @@
                           <li class="work-card__tags-item">Webデザイン</li>
                           <li class="work-card__tags-item">WordPress</li>
                         </ul>
-                        <span class="work-card__button en-font">MORE VIEW</span>
                       </div>
                     </div>
                   </a>
                 </article>
                 <article class="swiper-slide work-card">
-                  <a class="work-card__link" href="">
+                  <a class="work-card__link" href="works-hokkaido.html">
                     <div class="works-card__label">
                       <span>企業ブース装飾デザイン</span>
                     </div>
@@ -534,13 +566,12 @@
                           </li>
                           <li class="work-card__tags-item">ブースデザイン</li>
                         </ul>
-                        <span class="work-card__button en-font">MORE VIEW</span>
                       </div>
                     </div>
                   </a>
                 </article>
                 <article class="swiper-slide work-card">
-                  <a class="work-card__link" href="">
+                  <a class="work-card__link" href="works-keitonoyaoyasan.html">
                     <div class="works-card__label">
                       <span>ハンドメイドブランドサイト2</span>
                     </div>
@@ -562,7 +593,6 @@
                           <li class="work-card__tags-item">Webデザイン</li>
                           <li class="work-card__tags-item">WordPress</li>
                         </ul>
-                        <span class="work-card__button en-font">MORE VIEW</span>
                       </div>
                     </div>
                   </a>
@@ -585,7 +615,7 @@
               <!-- <div class="works-swiper__pagination"></div> -->
             </div>
           </div>
-          <a class="button button--works en-font">ABOUT ME </a>
+          <a class="button button--works en-font" href="works.html">WORKS </a>
         </div>
       </section>
     </main>
@@ -593,47 +623,27 @@
       <nav class="footer__nav">
         <ul class="footer-nav__list">
           <li class="footer-nav__item footer-nav__item--home">
-            <a class="footer-nav__link" href="#"
-              ><img
-                class="footer-nav__shape footer-nav__shape--home"
-                src="img/contact-nav-home.svg"
-                width="166"
-                height="166"
-                alt=""
-                decoding="async"
-              />
+            <a class="footer-nav__link" href="index.html">
               <span class="footer-nav__text en-font">HOME</span></a
             >
           </li>
           <li class="footer-nav__item footer-nav__item--about">
-            <a class="footer-nav__link" href=""
-              ><img
-                class="footer-nav__shape footer-nav__shape--about"
-                src="img/contact-nav-about.svg"
-                width="166"
-                height="166"
-                alt=""
-                decoding="async"
-              />
+            <a class="footer-nav__link" href="about.html">
               <span class="footer-nav__text footer-nav__text--about en-font"
                 >ABOUT ME</span
               ></a
             >
           </li>
           <li class="footer-nav__item footer-nav__item--works">
-            <a class="footer-nav__link" href=""
-              ><img
-                class="footer-nav__shape footer-nav__shape--works"
-                src="img/contact-nav-works.svg"
-                width="157"
-                height="128"
-                alt=""
-                decoding="async"
-              />
+            <a class="footer-nav__link" href="works.html">
               <span class="footer-nav__text en-font">WORKS</span></a
             >
           </li>
         </ul>
+        <div class="footer-nav-guide">
+          <span class="en-font">CLICK！</span>
+          <div class="scroll-down"></div>
+        </div>
       </nav>
       <div class="footer__contact">
         <div class="footer__content">
@@ -649,7 +659,7 @@
           </h2>
           <img
             class="contact-character"
-            src="img/contact-character.svg"
+            src="img/contact-character.png"
             width="240"
             height="94"
             alt=""
@@ -667,7 +677,7 @@
         <div class="footer__deco" aria-hidden="true">
           <img
             class="pc-only"
-            src="img/contact-deco.svg"
+            src="img/contact-deco.png"
             width="579"
             height="276"
             alt=""
@@ -676,7 +686,7 @@
           />
           <img
             class="sp-only footer__deco-img-sp"
-            src="img/contact-deco-sp.svg"
+            src="img/contact-deco-sp.png"
             width="579"
             height="193"
             alt=""
