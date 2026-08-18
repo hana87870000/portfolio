@@ -27,7 +27,7 @@ body {
 .section__title-jp {
   font-size: 18px;
   font-weight: bold;
-  letter-spacing: 30%;
+  letter-spacing: 0;
 }
 /* ボタン */
 .button {
@@ -403,6 +403,46 @@ body {
 .hero__shape {
   position: absolute;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.03));
+
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* HERO開始 */
+body.is-hero-start .hero__shape {
+  animation: hero-shape-in 0.6s ease forwards;
+}
+
+body.is-hero-start .hero__shape--triangle {
+  animation-delay: 0.95s;
+}
+
+body.is-hero-start .hero__shape--arch-red {
+  animation-delay: 0.75s;
+}
+
+body.is-hero-start .hero__shape--square {
+  animation-delay: 0.55s;
+}
+
+body.is-hero-start .hero__shape--circle {
+  animation-delay: 0.35s;
+}
+
+body.is-hero-start .hero__shape--arch-green {
+  animation-delay: 0.15s;
+}
+
+@keyframes hero-shape-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .hero__shape--arch-green {
   bottom: 0;
@@ -1595,7 +1635,7 @@ body {
 .p-work-detail__scope {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 12px;
+  gap: 10px;
 }
 .p-work-detail__info-data--url {
   display: flex;
@@ -2201,6 +2241,18 @@ body {
 /* フッターここまで--------------------------- */
 
 /* アニメーションここから---------------------- */
+/* ページ全体 */
+body {
+  opacity: 0;
+
+  transition: opacity 0.8s ease;
+}
+
+body.is-page-loaded {
+  opacity: 1;
+}
+
+/* セクションフェード */
 .js-fade {
   opacity: 0;
   transform: translateY(16px);
@@ -2214,5 +2266,53 @@ body {
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
+}
+
+.js-title-chars > span {
+  display: inline-block;
+  opacity: 0;
+
+  transform: translateY(16px) scale(0.8);
+  filter: blur(2px);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.5s ease;
+}
+
+.js-title-chars.is-show > span {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* 1文字ずつ少しゆっくり出す */
+.js-title-chars > span:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.js-title-chars > span:nth-child(2) {
+  transition-delay: 0.09s;
+}
+
+.js-title-chars > span:nth-child(3) {
+  transition-delay: 0.18s;
+}
+
+.js-title-chars > span:nth-child(4) {
+  transition-delay: 0.27s;
+}
+
+.js-title-chars > span:nth-child(5) {
+  transition-delay: 0.36s;
+}
+
+.js-title-chars > span:nth-child(6) {
+  transition-delay: 0.45s;
+}
+
+.js-title-chars > span:nth-child(7) {
+  transition-delay: 0.54s;
 }
 /* アニメーションここまで---------------------- */

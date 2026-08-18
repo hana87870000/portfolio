@@ -2,24 +2,33 @@
 
 {
   /* =========================
+  Page Fade In
+========================= */
+
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("is-page-loaded");
+  });
+
+  /* =========================
   Loading
 ========================= */
 
   const loading = document.querySelector(".loading");
 
-  const startTime = performance.now();
-
   window.addEventListener("load", () => {
-    if (!loading) return;
+    /* ローディングがないページ */
+    if (!loading) {
+      document.body.classList.add("is-hero-start");
+      return;
+    }
 
-    const elapsedTime = performance.now() - startTime;
-    const minimumTime = 1200;
-
-    const remainingTime = Math.max(minimumTime - elapsedTime, 0);
-
+    /* ローディングがあるページ */
     setTimeout(() => {
       loading.classList.add("is-loaded");
-    }, remainingTime);
+
+      /* HEROアニメーション開始 */
+      document.body.classList.add("is-hero-start");
+    }, 1200);
   });
   /* =========================
     Smooth Scroll
@@ -143,7 +152,6 @@
   if (typeof ScrollHint !== "undefined") {
     new ScrollHint(".js-hoge");
   }
-
   /* =========================
   Scroll Fade
 ========================= */
