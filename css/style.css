@@ -1753,6 +1753,11 @@ body.is-hero-start .hero__shape--arch-green {
   border-radius: 8px;
   width: 100%;
 }
+.p-work-output__website-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
 .p-work-output__url-wrap {
   text-align: center;
   margin-top: 32px;
@@ -1777,7 +1782,7 @@ body.is-hero-start .hero__shape--arch-green {
   z-index: 0;
 }
 .p-work-output__btn {
-  margin-top: 32px;
+  margin-top: 48px;
   margin-bottom: 120px;
 }
 .p-work-output__visuals-row {
@@ -1957,6 +1962,9 @@ body.is-hero-start .hero__shape--arch-green {
   }
   .p-work-output__visual-web img {
     border-radius: 8px;
+  }
+  .p-work-output__website-wrap {
+    gap: 32px;
   }
   .p-work-output__url {
     display: block;
