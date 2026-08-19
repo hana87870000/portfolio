@@ -1990,6 +1990,10 @@ body.is-hero-start .copy-img--3 {
     display: flex;
     flex-direction: column;
   }
+  .p-work-output__visual-wrap--logo img {
+    aspect-ratio: 322/220;
+    object-fit: cover;
+  }
   .p-work-detail__info {
     margin-top: 32px;
     padding: 20px 8% 56px;
