@@ -849,6 +849,7 @@ body.is-hero-start .copy-img--3 {
   -webkit-backdrop-filter: blur(12px);
   padding: 20px 7% 48px;
   border-radius: 20px;
+  height: 100%;
 }
 .works-card__pickup {
   position: absolute;
@@ -987,7 +988,7 @@ body.is-hero-start .copy-img--3 {
   background-color: var(--color-blue);
   display: flex;
   margin-inline: auto;
-  margin-top: 40px;
+  margin-top: 68px;
 }
 
 .works-swiper {
